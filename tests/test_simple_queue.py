@@ -1,6 +1,7 @@
 from pytest import raises
 
 from src.simple_queue import Fila
+from src.fill_fila import fill_fila
 
 def test_fila_class_data_attr():
     fila = Fila()
@@ -61,3 +62,9 @@ def test_pop_err():
     with raises(IndexError):
         fila.pop_from_fila()
 
+def test_filling_fila():
+    fila = fill_fila(3)
+    got = fila.is_empty()
+    want = False
+
+    assert got == want
