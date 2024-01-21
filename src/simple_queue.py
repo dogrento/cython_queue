@@ -19,11 +19,13 @@ class Fila():
 
         self.data.pop(0)
 
+    def len_fila(self):
+        return len(self.data)
 
-def fill_fila(n):
-    fila = Fila()
 
-    for i in range(n):
+def fill_fila(fila, n):
+
+    while fila.len_fila() < n:
         random_value = random.randint(0, n)
 
         if random_value not in fila.data:

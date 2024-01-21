@@ -1,12 +1,20 @@
 from pytest import raises
 
 from src.simple_queue import Fila, fill_fila
-# from src.fill_fila import fill_fila
 
 def test_fila_class_data_attr():
     fila = Fila()
     got = fila.data
     want = [] 
+
+    assert got == want
+
+def test_fila_length():
+    fila = Fila()
+    fill_fila(fila, 10)
+
+    got = 10
+    want = fila.len_fila()
 
     assert got == want
 
@@ -63,7 +71,8 @@ def test_pop_err():
         fila.pop_from_fila()
 
 def test_filling_fila():
-    fila = fill_fila(3)
+    fila = Fila()
+    fill_fila(fila, 10)
     got = fila.is_empty()
     want = False
 
