@@ -1,7 +1,7 @@
 from pytest import raises
 
-from src.simple_queue import Fila
-from src.fill_fila import fill_fila
+from src.simple_queue import Fila, fill_fila
+# from src.fill_fila import fill_fila
 
 def test_fila_class_data_attr():
     fila = Fila()
