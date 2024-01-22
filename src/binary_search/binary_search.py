@@ -1,4 +1,5 @@
 def binarySearch(fila, x, low, high):
+    mergeSort(fila.data)
     while low <= high:
         mid = low + (high-low) // 2
 
@@ -10,13 +11,6 @@ def binarySearch(fila, x, low, high):
             high = mid -1
 
     return False 
-
-# def sortFila(fila):
-#     if fila.len_fila() <= 1:
-#         return fila
-#     for i in range(fila.len_fila()):
-#         
-#     return [0, 1, 2, 3, 4]
 
 def mergeSort(arr):
     if len(arr) > 1:
@@ -51,4 +45,7 @@ def mergeSort(arr):
         
 
 def isOrdered(arr):
+    for i in range(len(arr) - 1): 
+        if arr[i] > arr[i+1]:
+            return False
     return True
