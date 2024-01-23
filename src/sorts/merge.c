@@ -14,14 +14,14 @@ void merge(int arr[], int left, int mid, int right){
   for(i = 0; i < n1; i++)
     l_arr[i] = arr[left + i];
   for(j = 0; j < n2; j++)
-    r_arr[i] = arr[mid + 1 + j];
+    r_arr[j] = arr[mid + 1 + j];
 
   // merge the temp arrays back into arr[l...r]
   i = 0;
   j = 0;
-  k = l;
+  k = left;
   while(i < n1 && j < n2){
-    if(l_arr[i] < = r_arr[j]){
+    if(l_arr[i] <= r_arr[j]){
       arr[k] = l_arr[i];
       i++;
     }
@@ -53,6 +53,6 @@ void c_mergeSort(int arr[], int left, int right){
     c_mergeSort(arr, left, mid);
     c_mergeSort(arr, mid + 1, right);
 
-    merge(arr, left, right);
+    merge(arr, left, mid, right);
   }
 }
