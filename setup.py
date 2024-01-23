@@ -6,7 +6,15 @@ exts = cythonize(
         [Extension(
             'wrapper',
             sources=['src/sorts/merge.c', 'src/wrapper.pyx']
-            )
+            ),
+         Extension(
+             'cy_binary_search',
+             [mods[0]]
+             ),
+         Extension(
+             'px_bin_search',
+             [mods[1]]
+             )
          ]
         )
 
