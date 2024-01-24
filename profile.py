@@ -1,3 +1,6 @@
+import random
+
+import numpy as np
 
 from src.simple_queue import Fila, fill_fila
 from px_bin_search import mergeSort as pxMergeSort
@@ -7,19 +10,21 @@ from wrapper import c_merge
 
 def pure_py(fila1):
     # fila = fill_test(1000) 
-    mergeSort()
+    mergeSort(fila1)
 
 def compiled_py(fila2):
     # fila = fill_test(1000) 
-    cyMergeSort()
+    cyMergeSort(fila2)
 
 def px_py(fila3):
     # fila = fill_test(1000) 
-    pxMergeSort()
+    pxMergeSort(fila3)
 
 def merge_c(fila4):
+    aux = np.array(fila4, dtype=np.int32)
+    arr_view = memoryview(aux)
     # fila = fill_test(1000)
-    c_merge()
+    c_merge(arr_view, 0, 1000)
 
 def just_fill():
     fila = fill_test(1000)
@@ -40,10 +45,10 @@ def main():
     fila3 = fill_test(1000) 
     fila4 = fill_test(1000) 
 
-    pure_py()
-    compiled_py()
-    px_py()
-    merge_c()
+    pure_py(fila1)
+    compiled_py(fila2)
+    px_py(fila3)
+    merge_c(fila4)
 
 
 if __name__ == "__main__":
