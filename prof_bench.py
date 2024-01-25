@@ -20,11 +20,11 @@ def px_py(fila3):
     # fila = fill_test(1000) 
     pxMergeSort(fila3)
 
-def merge_c(fila4):
+def merge_c(fila4, n):
     aux = np.array(fila4, dtype=np.int32)
     arr_view = memoryview(aux)
     # fila = fill_test(1000)
-    c_merge(arr_view, 0, 1000)
+    c_merge(arr_view, 0, n)
 
 def just_fill():
     fila = fill_test(1000)
@@ -40,15 +40,16 @@ def fill_test(n):
     return arr
 
 def main():
-    fila1 = fill_test(1000) 
-    fila2 = fill_test(1000) 
-    fila3 = fill_test(1000) 
-    fila4 = fill_test(1000) 
+    value = 10000
+    fila1 = fill_test(value) 
+    fila2 = fill_test(value) 
+    fila3 = fill_test(value) 
+    fila4 = fill_test(value) 
 
     pure_py(fila1)
     compiled_py(fila2)
     px_py(fila3)
-    merge_c(fila4)
+    merge_c(fila4, value)
 
 
 if __name__ == "__main__":
