@@ -17,3 +17,14 @@ def test_c_merge():
     want = True 
 
     assert got == want
+
+def test_py_quickSort():
+    fila = Fila()
+    fill_fila(fila, 10)
+
+    py_quickMerge(fila.data)
+
+    got = isOrdered(fila.data)
+    want = True
+
+    assert got == want
